@@ -27,3 +27,10 @@ Route::get('/create', [BookController::class, 'create'])->name('create');
 // untuk menyimpan data buku
 Route::post('/store', [BookController::class, 'store'])->name('store');
 // /produk -> nampilin produk
+
+Route::get('/edit/{id}', [BookController::class, 'edit'])->name('edit');
+
+Route::patch('/update/{id}', [BookController::class, 'update'])->name('update');
+// ctrl + d
+
+Route::delete('/delete/{id}', [BookController::class, 'delete'])->name('delete');

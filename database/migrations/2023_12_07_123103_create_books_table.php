@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('author');
             $table->date('publication_date');
             $table->integer('stock');
+            $table->string('image');
             $table->timestamps();
         });
     }

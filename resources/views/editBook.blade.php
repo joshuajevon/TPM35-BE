@@ -47,53 +47,26 @@
       </nav>
 
       <div class="p-5">
-        <h1 class="text-center">Create Book</h1>
-        <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+        <h1 class="text-center">Edit Book</h1>
+        <form action="{{route('update', $book->id)}}" method="POST">
           @csrf
+          @method('patch')
           <div class="mb-3">
             <label for="" class="form-label">Title</label>
-            <input value="{{old('title')}}" type="text" class="form-control" id="" name="title">
+            <input value="{{ $book->title }}" type="text" class="form-control" id="" name="title">
           </div>
-
-          @error('title')
-            <div class="alert alert-danger" role="alert">{{$message}}</div>
-          @enderror
-
           <div class="mb-3">
             <label for="" class="form-label">Author</label>
-            <input value="{{old('author')}}" type="text" class="form-control" id="" name="author">
+            <input value="{{ $book->author }}" type="text" class="form-control" id="" name="author">
           </div>
-
-          @error('author')
-          <div class="alert alert-danger" role="alert">{{$message}}</div>
-        @enderror
-
           <div class="mb-3">
               <label for="" class="form-label">Publication Date</label>
-              <input value="{{old('publication_date')}}"type="date" class="form-control" id="" name="publication_date">
+              <input value="{{ $book->publication_date }}" type="date" class="form-control" id="" name="publication_date">
           </div>
-
-          @error('publication_date')
-          <div class="alert alert-danger" role="alert">{{$message}}</div>
-        @enderror
-
           <div class="mb-3">
               <label for="" class="form-label">Stock</label>
-              <input value="{{old('stock')}}" type="number" class="form-control" id="" name="stock">
+              <input value="{{ $book->stock }}" type="number" class="form-control" id="" name="stock">
           </div>
-
-          @error('stock')
-          <div class="alert alert-danger" role="alert">{{$message}}</div>
-        @enderror
-
-          <div class="mb-3">
-            <label for="" class="form-label">Image</label>
-            <input  type="file" class="form-control" id="" name="image">
-        </div>
-
-        @error('image')
-        <div class="alert alert-danger" role="alert">{{$message}}</div>
-      @enderror
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
