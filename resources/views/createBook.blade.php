@@ -92,8 +92,18 @@
         </div>
 
         @error('image')
-        <div class="alert alert-danger" role="alert">{{$message}}</div>
-      @enderror
+            <div class="alert alert-danger" role="alert">{{$message}}</div>
+        @enderror
+
+        <div class="mb-3">
+            <label for="" class="form-label">Category</label>
+            <select class="form-select" aria-label="Default select example" name="category_name">
+                @foreach ($categories as $c)
+                    <option value="{{$c->id}}">{{$c->category_name}}</option>
+                @endforeach
+            </select>
+        </div>
+
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

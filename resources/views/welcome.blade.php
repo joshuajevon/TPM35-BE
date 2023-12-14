@@ -47,6 +47,12 @@
     </nav>
 
     <h1 class="text-center">View Books</h1>
+
+    <a href="/create">
+        <button class="btn btn-success">
+            Create
+        </button>
+    </a>
     <div class="d-flex flex-row justify-content-center gap-5">
         @foreach ($books as $b)
         <div class="card" style="width: 18rem;">
@@ -56,6 +62,7 @@
               <p class="card-text">Author: {{$b->author}}</p>
               <p class="card-text">Publication Date: {{$b->publication_date}}</p>
               <p class="card-text">Stock: {{$b->stock}}</p>
+              <p class="card-text">Category: {{$b->category->category_name}}</p>
               <a href="{{route('edit', $b->id)}}" class="btn btn-success">Edit</a>
 
               <form action="{{route('delete', $b->id)}}" method="POST">

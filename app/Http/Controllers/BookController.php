@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,7 +15,8 @@ class BookController extends Controller
     }
 
     public function create(){
-        return view('createBook');
+        $categories = Category::all();
+        return view('createBook', compact('categories'));
     }
 
     public function store(Request $request){
@@ -35,7 +37,8 @@ class BookController extends Controller
             'author' => $request->author,
             'publication_date' => $request->publication_date,
             'stock' => $request->stock,
-            'image' => $fileName
+            'image' => $fileName,
+            'category_id' => $request->category_name
         ]);
 
         //nama atribut => $request->name dari input form
