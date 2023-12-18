@@ -42,7 +42,7 @@ class BookController extends Controller
         ]);
 
         //nama atribut => $request->name dari input form
-        return redirect(route('show'));
+        return redirect(route('show'))->with('success','Book created succesfully!');
     }
 
     public function edit($id){

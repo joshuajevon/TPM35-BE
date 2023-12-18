@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -48,6 +48,12 @@
 
     <h1 class="text-center">View Books</h1>
 
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
+
     <a href="/create">
         <button class="btn btn-success">
             Create
@@ -74,6 +80,15 @@
             </div>
           </div>
           @endforeach
+        </div>
+
+        <div class="m-5">
+            <form action="{{route('sendMail')}}" method="POST">
+                @csrf
+                <label for="">Message</label>
+                <input class="form-control" type="text" name="message" id="">
+                <button class="btn btn-success" type="submit">Send</button>
+            </form>
         </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
